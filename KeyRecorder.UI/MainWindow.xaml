@@ -283,8 +283,8 @@
                                         </Button.Style>
                                     </Button>
                                     <ToggleButton IsChecked="{Binding IsResolved, Mode=TwoWay}"
-                                                  Content="{Binding ResolveButtonText}"
-                                                  Width="60" Height="22" FontSize="10"
+                                                  Content="🔍"
+                                                  Width="26" Height="22" FontSize="13" Margin="0,0,0,0"
                                                   ToolTip="Resolve keystrokes into readable text (applies backspace, shows Shift+letters in red)">
                                         <ToggleButton.Style>
                                             <Style TargetType="ToggleButton">
@@ -296,7 +296,7 @@
                                                         <ControlTemplate TargetType="ToggleButton">
                                                             <Border Background="{TemplateBinding Background}"
                                                                     BorderBrush="{TemplateBinding BorderBrush}"
-                                                                    BorderThickness="1" CornerRadius="3" Padding="4,2">
+                                                                    BorderThickness="1" CornerRadius="3" Padding="2,2">
                                                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                                             </Border>
                                                         </ControlTemplate>
