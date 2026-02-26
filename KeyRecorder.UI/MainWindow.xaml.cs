@@ -502,6 +502,17 @@ public partial class MainWindow : Window
         await LoadRecentKeystrokesAsync();
     }
 
+    private void CopyButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (sender is System.Windows.Controls.Button button)
+        {
+            if (button.DataContext is TimelineEntry entry)
+            {
+                entry.CopyToClipboard();
+            }
+        }
+    }
+
     private void AboutButton_Click(object sender, RoutedEventArgs e)
     {
         var aboutWindow = new AboutWindow
@@ -708,6 +719,27 @@ public class TimelineEntry : INotifyPropertyChanged
 
     public string ReverseButtonText => IsReversed ? "Original" : "Reverse";
     public string ResolveButtonText => IsResolved ? "Original" : "Resolve";
+
+    public string GetCopyText()
+    {
+        return string.Join("", DisplayKeystrokes.Select(k => k.DisplayText));
+    }
+
+    public void CopyToClipboard()
+    {
+        try
+        {
+            var textToCopy = GetCopyText();
+            if (!string.IsNullOrEmpty(textToCopy))
+            {
+                System.Windows.Clipboard.SetText(textToCopy);
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Failed to copy to clipboard: {ex.Message}");
+        }
+    }
 
     public event PropertyChangedEventHandler? PropertyChanged;
 

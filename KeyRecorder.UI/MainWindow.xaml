@@ -220,8 +220,8 @@
                                 <!-- Reverse and Resolve toggle buttons -->
                                 <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Top" Margin="8,0,0,0">
                                     <ToggleButton IsChecked="{Binding IsReversed, Mode=TwoWay}"
-                                                  Content="{Binding ReverseButtonText}"
-                                                  Width="60" Height="22" FontSize="10" Margin="0,0,4,0"
+                                                  Content="⇄"
+                                                  Width="26" Height="22" FontSize="13" Margin="0,0,4,0"
                                                   ToolTip="Toggle to reverse keystroke order for reading">
                                         <ToggleButton.Style>
                                             <Style TargetType="ToggleButton">
@@ -233,7 +233,7 @@
                                                         <ControlTemplate TargetType="ToggleButton">
                                                             <Border Background="{TemplateBinding Background}"
                                                                     BorderBrush="{TemplateBinding BorderBrush}"
-                                                                    BorderThickness="1" CornerRadius="3" Padding="4,2">
+                                                                    BorderThickness="1" CornerRadius="3" Padding="2,2">
                                                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                                             </Border>
                                                         </ControlTemplate>
@@ -252,6 +252,36 @@
                                             </Style>
                                         </ToggleButton.Style>
                                     </ToggleButton>
+                                    <Button x:Name="CopyButton" Width="26" Height="22" FontSize="13" Margin="0,0,4,0"
+                                            Click="CopyButton_Click"
+                                            ToolTip="Copy the displayed text to clipboard">
+                                        <Button.Content>📋</Button.Content>
+                                        <Button.Style>
+                                            <Style TargetType="Button">
+                                                <Setter Property="Background" Value="#f5f5f5"/>
+                                                <Setter Property="Foreground" Value="#666"/>
+                                                <Setter Property="BorderBrush" Value="#ccc"/>
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="Button">
+                                                            <Border Background="{TemplateBinding Background}"
+                                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                                    BorderThickness="1" CornerRadius="3" Padding="2,2">
+                                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                            </Border>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="#e8f5e9"/>
+                                                        <Setter Property="BorderBrush" Value="#4caf50"/>
+                                                        <Setter Property="Foreground" Value="#4caf50"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Button.Style>
+                                    </Button>
                                     <ToggleButton IsChecked="{Binding IsResolved, Mode=TwoWay}"
                                                   Content="{Binding ResolveButtonText}"
                                                   Width="60" Height="22" FontSize="10"

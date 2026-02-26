@@ -32,7 +32,8 @@
       "Bash(git push)",
       "Bash(git push:*)",
       "Bash(find:*)",
-      "Bash(tasklist /FI \"IMAGENAME eq KeyRecorder.UI.exe\")"
+      "Bash(tasklist /FI \"IMAGENAME eq KeyRecorder.UI.exe\")",
+      "Bash(git tag:*)"
     ]
   }
 }
